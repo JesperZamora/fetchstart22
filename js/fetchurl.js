@@ -18,13 +18,16 @@ async function actionFetchUrl() {
 
 
 //Update to the original code given above. Instead of combining the async/await with then();
+
 function newFetchAnyUrl(url) {
     return fetch(url).then(response => response.text().then(data => data));
 }
 
+// The reason we use "then()" again when calling our newFetchAnyUrl(url) is because it returns a Promise.
+// So to gain access to the information we need to use the "then()" and give it function.
 function newActionFetchUrl() {
     const url = inpUrl.value
-    fetchAnyUrl(url).then(
+    newFetchAnyUrl(url).then(
         jsonOutput => textArea.textContent =jsonOutput
     );
 }
