@@ -27,6 +27,10 @@ function addKommunerToList() {
     });
 }
 
+/**
+ * I use await two times instead of using a "handler function", like the fetchAnyUrl() in fetchurl.js, that uses "then()"
+ * See the fetchurl.js for more info.
+ */
 async function loadData() {
     const res = await fetch(urlKommuner);
     const data = await res.json();
